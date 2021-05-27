@@ -1,14 +1,18 @@
 import React from 'react';
-import './App.css';
-import Input from './components/Input';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import AddTodoForm from './components/AddTodoForm';
+import TodoList from './components/TodoList';
+import TotalCompleteItems from './components/TotalCompleteItems';
 
-function App() {
+const App = () => {
 	return (
-		<div className='app'>
-			<h1>Todo App</h1>
-			<Input />
+		<div className='container bg-white p-4 mt-5'>
+			<h1>My Todo List</h1>
+			<AddTodoForm />
+			<TodoList />
+			<TotalCompleteItems />
 		</div>
 	);
-}
+};
 
 export default App;
