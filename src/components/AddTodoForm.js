@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
+// import dispatch from react-redux
+import { useDispatch } from 'react-redux';
+// import action that we want to dispatch, from todoSlice
+import { addTodo } from './redux/todoSlice';
 
 const AddTodoForm = () => {
 	const [value, setValue] = useState('');
+	const dispatch = useDispatch();
 
 	const onSubmit = (event) => {
 		event.preventDefault();
-		console.log('user entered: ' + value);
+		// dispatch action on event handler which carries the payload
+		dispatch(addTodo({ title: value }));
 	};
 
 	return (

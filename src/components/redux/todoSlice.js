@@ -19,7 +19,7 @@ const todoSlice = createSlice({
 	}
 });
 
-// export actions
+// export action
 export const { addTodo } = todoSlice.actions;
 
 // export reducer
