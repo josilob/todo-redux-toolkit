@@ -15,12 +15,17 @@ const todoSlice = createSlice({
 				completed: false
 			};
 			state.push(newTodo);
+		},
+		toggleComplete: (state, action) => {
+			const index = state.findIndex((todo) => todo.id === action.payload.id);
+			state[index].completed = action.payload.completed;
 		}
 	}
 });
 
 // export action
 export const { addTodo } = todoSlice.actions;
+export const { toggleComplete } = todoSlice.actions;
 
 // export reducer
 export default todoSlice.reducer;
