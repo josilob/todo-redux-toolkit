@@ -4,6 +4,8 @@ import { useSelector } from 'react-redux';
 
 const TodoList = () => {
 	// pull todos from state (comming from todoSlice as initial state)
+	// useSelector - allows data extraction from the Redux store state, using a selector function.
+
 	const todos = useSelector((state) => state.todos);
 
 	return (
