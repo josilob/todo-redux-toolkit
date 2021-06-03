@@ -26,6 +26,21 @@ export const addTodoAsync = createAsyncThunk(
 	}
 );
 
+export const toggleCompleteAsync = createAsyncThunk(
+	'todos/completeTodoAsync',
+	async (payload) => {
+		const res = await fetch(`http://localhost:7000/todos/${payload.id}`, {
+			method: 'PATCH',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({ completed: payload.completed })
+		});
+		if (res.ok) {
+			const todo = await res.json();
+			return { id: todo.id, completed: todo.completed };
+		}
+	}
+);
+
 const todoSlice = createSlice({
 	name: 'todos',
 	initialState: [
